@@ -27,11 +27,26 @@
         android:layout_marginTop="35dp" />
 
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="enter username here"
+        android:ems="10"
         android:id="@+id/usernameLogin"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:background="#ffffff"
+        android:textColor="@color/colorPrimaryText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="enter password here"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordLogin"
+        android:layout_below="@+id/usernameLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
         android:background="#ffffff"
         android:textColor="@color/colorPrimaryText" />
 </RelativeLayout>
