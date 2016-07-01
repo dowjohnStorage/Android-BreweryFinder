@@ -15,7 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchActivity"
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.androidindependentproject.MainActivity">
+            </meta-data>
+        </activity>
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ResultsActivity"></activity>
     </application>
