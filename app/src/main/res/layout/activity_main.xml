@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     tools:context="com.epicodus.androidindependentproject.MainActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:src="@drawable/beermain"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,9 +50,20 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordLogin"
-        android:layout_below="@+id/usernameLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
         android:background="#ffffff"
-        android:textColor="@color/colorPrimaryText" />
+        android:textColor="@color/colorPrimaryText"
+        android:layout_below="@+id/usernameLogin"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@+id/usernameLogin"
+        android:layout_alignStart="@+id/usernameLogin" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In!"
+        android:id="@+id/loginButton"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/passwordLogin"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
