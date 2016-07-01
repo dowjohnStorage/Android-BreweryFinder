@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Results"
+        android:text="Results:"
         android:layout_marginTop="20dp"
         android:textSize="40sp"
         android:id="@+id/resultsTextView"
@@ -27,5 +27,12 @@
         android:layout_below="@+id/resultsTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchItemDisplay"
+        android:layout_below="@+id/resultsTextView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
