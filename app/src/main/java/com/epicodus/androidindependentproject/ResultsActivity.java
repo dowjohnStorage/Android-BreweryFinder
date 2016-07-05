@@ -33,7 +33,7 @@ public class ResultsActivity extends AppCompatActivity {
             mSearchItemDisplay.setText(brewSearchItem);
         } else if (!brewerySearchItem.equals("")) {
             mSearchItemDisplay.setText(brewerySearchItem);
-        } else{
+        } else {
             mSearchItemDisplay.setText("no entry");
         }
 
