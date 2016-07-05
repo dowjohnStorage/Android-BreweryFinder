@@ -17,27 +17,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SearchActivity">
+        <activity android:name=".SearchActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.androidindependentproject.MainActivity">
-            </meta-data>
+                android:value="com.epicodus.androidindependentproject.MainActivity" />
         </activity>
-        <activity
-            android:name=".ProfileActivity">
+        <activity android:name=".ProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.androidindependentproject.SearchActivity">
-            </meta-data>
+                android:value="com.epicodus.androidindependentproject.SearchActivity" />
         </activity>
-        <activity
-            android:name=".ResultsActivity">
+        <activity android:name=".ResultsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.androidindependentproject.SearchActivity">
-            </meta-data>
+                android:value="com.epicodus.androidindependentproject.SearchActivity" />
         </activity>
+        <activity android:name=".CreateProfileActivity"></activity>
     </application>
 
 </manifest>
