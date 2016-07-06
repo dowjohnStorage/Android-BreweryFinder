@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 
 public class ResultsActivity extends AppCompatActivity {
     public static final String TAG = ResultsActivity.class.getSimpleName();
+
     @Bind(R.id.resultsList) ListView mResultsList;
     @Bind(R.id.searchItemDisplay) TextView mSearchItemDisplay;
     private String[] results = {"Jojo's Brew", "Andrews's Brew", "John's Brew", "Coors Light", "Coors Original"};

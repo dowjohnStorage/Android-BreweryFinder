@@ -8,5 +8,6 @@ public class Constants {
     public static final String BREWERYDB_BASE_URL = "http://api.brewerydb.com/v2/";
     public static final String BREWERYDB_BEER_PARAMETER = "beer";
     public static final String BREWERYDB_LOCATIONS_PARAMETER = "locations";
-    public static final String API_KEY_QUERY_PARAMETER = "key=";
+    public static final String BREWERYDB_POSTALCODE_PARAMETER = "postalCode";
+    public static final String API_KEY_QUERY_PARAMETER = "key";
 }
