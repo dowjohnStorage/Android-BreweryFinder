@@ -1,6 +1,10 @@
-package com.epicodus.androidindependentproject;
+package com.epicodus.androidindependentproject.services;
 
 import android.util.Log;
+
+import com.epicodus.androidindependentproject.Constants;
+import com.epicodus.androidindependentproject.ui.ResultsActivity;
+import com.epicodus.androidindependentproject.models.Brewery;
 
 import org.json.JSONArray;
 import org.json.JSONException;

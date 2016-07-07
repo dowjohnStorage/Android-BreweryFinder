@@ -1,4 +1,4 @@
-package com.epicodus.androidindependentproject;
+package com.epicodus.androidindependentproject.models;
 
 public class Brewery {
     private String mBreweryID;

@@ -1,20 +1,19 @@
-package com.epicodus.androidindependentproject;
+package com.epicodus.androidindependentproject.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.epicodus.androidindependentproject.R;
+import com.epicodus.androidindependentproject.models.Brewery;
+import com.epicodus.androidindependentproject.services.BrewerydbService;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.RunnableFuture;
 
 import okhttp3.Call;
 import okhttp3.Callback;
