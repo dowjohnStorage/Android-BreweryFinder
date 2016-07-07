@@ -23,35 +23,39 @@ public class Brewery {
         this.mRegion = region;
     }
 
-    public String getmName() {
+    public String getBreweryID() {
+        return mBreweryID;
+    }
+
+    public String getName() {
         return mName;
     }
 
-    public String getmPhone() {
+    public String getPhone() {
         return mPhone;
     }
 
-    public String getmAddress() {
+    public String getAddress() {
         return mAddress;
     }
 
-    public String getmLocationType() {
+    public String getLocationType() {
         return mLocationType;
     }
 
-    public String getmDescription() {
+    public String getDescription() {
         return mDescription;
     }
 
-    public String getmWebsite() {
+    public String getWebsite() {
         return mWebsite;
     }
 
-    public String getmLocality() {
+    public String getLocality() {
         return mLocality;
     }
 
-    public String getmRegion() {
+    public String getRegion() {
         return mRegion;
     }
 }

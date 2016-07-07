@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.concurrent.RunnableFuture;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -26,7 +28,8 @@ public class ResultsActivity extends AppCompatActivity {
 
     @Bind(R.id.resultsList) ListView mResultsList;
     @Bind(R.id.searchItemDisplay) TextView mSearchItemDisplay;
-    private String[] results = {"Jojo's Brew", "Andrews's Brew", "John's Brew", "Coors Light", "Coors Original"};
+
+    public ArrayList<Brewery> mBreweries = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,22 +48,12 @@ public class ResultsActivity extends AppCompatActivity {
             mSearchItemDisplay.setText("no entry");
         }
 
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, results);
-        mResultsList.setAdapter(adapter);
-
-        mResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String result = ((TextView) view).getText().toString();
-                Toast.makeText(ResultsActivity.this, result, Toast.LENGTH_LONG).show();
-            }
-        });
-
         getBreweries(brewerySearchItem);
     }
+
     private void getBreweries(String location) {
         final BrewerydbService breweryDBService = new BrewerydbService();
+
         breweryDBService.findLocalBreweries(location, new Callback() {
 
             @Override
@@ -69,14 +62,29 @@ public class ResultsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                } catch (IOException e) {
-                    e.printStackTrace();
+            public void onResponse(Call call, Response response) {
+                mBreweries = breweryDBService.procesResults(response);
+
+                ResultsActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] breweryNames = new String[mBreweries.size()];
+                        for (int i = 0; i < breweryNames.length; i++) {
+                            breweryNames[i] = mBreweries.get(i).getName();
+                        }
+
+                        ArrayAdapter adapter = new ArrayAdapter(ResultsActivity.this,
+                                android.R.layout.simple_list_item_1, breweryNames);
+                        mResultsList.setAdapter(adapter);
+
+                        for (Brewery brewery : mBreweries) {
+                            Log.d(TAG, "Name: " + brewery.getName());
+                            Log.d(TAG, "Phone: " + brewery.getPhone());
+                            Log.d(TAG, "Website: " + brewery.getWebsite());
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
+    });
+}
 }

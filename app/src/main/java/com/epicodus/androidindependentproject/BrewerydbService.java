@@ -46,12 +46,12 @@ public class BrewerydbService {
                 JSONArray dataJSON = breweryDBJSON.getJSONArray("data");
                 for (int i = 0; i < dataJSON.length(); i++) {
                     JSONObject breweryJSON = dataJSON.getJSONObject(i);
-                    String breweryID = breweryJSON.getString("brewery.id");
-                    String name = breweryJSON.getString("brewery.name");
+                    String breweryID = breweryJSON.getJSONObject("brewery").getString("id");
+                    String name = breweryJSON.getJSONObject("brewery").getString("name");
                     String phone = breweryJSON.optString("phone");
                     String address = breweryJSON.optString("streetAddress");
                     String locationType = breweryJSON.optString("locationType");
-                    String description = breweryJSON.optString("brewery.description");
+                    String description = breweryJSON.getJSONObject("brewery").getString("description");
                     String website = breweryJSON.optString("website");
                     String locality = breweryJSON.optString("locality");
                     String region = breweryJSON.optString("region");
