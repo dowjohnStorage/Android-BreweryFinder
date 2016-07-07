@@ -3,12 +3,15 @@ package com.epicodus.androidindependentproject.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.epicodus.androidindependentproject.R;
+import com.epicodus.androidindependentproject.adapters.ResultListAdapter;
 import com.epicodus.androidindependentproject.models.Brewery;
 import com.epicodus.androidindependentproject.services.BrewerydbService;
 
@@ -25,8 +28,9 @@ import butterknife.ButterKnife;
 public class ResultsActivity extends AppCompatActivity {
     public static final String TAG = ResultsActivity.class.getSimpleName();
 
-    @Bind(R.id.resultsList) ListView mResultsList;
-    @Bind(R.id.searchItemDisplay) TextView mSearchItemDisplay;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+
+    private ResultListAdapter mAdapter;
 
     public ArrayList<Brewery> mBreweries = new ArrayList<>();
 
@@ -39,13 +43,6 @@ public class ResultsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String brewerySearchItem = intent.getStringExtra("brewerySearchItem");
         String brewSearchItem = intent.getStringExtra("brewSearchItem");
-        if(brewerySearchItem == null || brewerySearchItem.equals("")) {
-            mSearchItemDisplay.setText(brewSearchItem);
-        } else if (!brewerySearchItem.equals("")) {
-            mSearchItemDisplay.setText(brewerySearchItem);
-        } else {
-            mSearchItemDisplay.setText("no entry");
-        }
 
         getBreweries(brewerySearchItem);
     }
@@ -67,23 +64,15 @@ public class ResultsActivity extends AppCompatActivity {
                 ResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] breweryNames = new String[mBreweries.size()];
-                        for (int i = 0; i < breweryNames.length; i++) {
-                            breweryNames[i] = mBreweries.get(i).getName();
-                        }
-
-                        ArrayAdapter adapter = new ArrayAdapter(ResultsActivity.this,
-                                android.R.layout.simple_list_item_1, breweryNames);
-                        mResultsList.setAdapter(adapter);
-
-                        for (Brewery brewery : mBreweries) {
-                            Log.d(TAG, "Name: " + brewery.getName());
-                            Log.d(TAG, "Phone: " + brewery.getPhone());
-                            Log.d(TAG, "Website: " + brewery.getWebsite());
+                        mAdapter = new ResultListAdapter(getApplicationContext(), mBreweries);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(ResultsActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
-                }
-            });
-        }
-    });
-}
+                });
+            }
+        });
+    }
 }

@@ -10,8 +10,9 @@ public class Brewery {
     private String mWebsite;
     private String mLocality;
     private String mRegion;
+    private String mImgURL;
 
-    public Brewery(String breweryID, String name, String phone, String address, String locationType, String description, String website, String locality, String region) {
+    public Brewery(String breweryID, String name, String phone, String address, String locationType, String description, String website, String locality, String region, String imgURL) {
         this.mBreweryID = breweryID;
         this.mName = name;
         this.mPhone = phone;
@@ -21,6 +22,7 @@ public class Brewery {
         this.mWebsite = website;
         this.mLocality = locality;
         this.mRegion = region;
+        this.mImgURL = imgURL;
     }
 
     public String getBreweryID() {
@@ -57,5 +59,8 @@ public class Brewery {
 
     public String getRegion() {
         return mRegion;
+    }
+    public String getImgUrl() {
+        return mImgURL;
     }
 }

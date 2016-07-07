@@ -59,8 +59,9 @@ public class BrewerydbService {
                     String website = breweryJSON.optString("website");
                     String locality = breweryJSON.optString("locality");
                     String region = breweryJSON.optString("region");
+                    String imgURL = breweryJSON.getJSONObject("brewery").getJSONObject("images").optString("squareMedium");
 
-                    Brewery brewery = new Brewery(breweryID, name, phone, address, locationType, description, website, locality, region);
+                    Brewery brewery = new Brewery(breweryID, name, phone, address, locationType, description, website, locality, region, imgURL);
                     breweries.add(brewery);
                 }
             }
