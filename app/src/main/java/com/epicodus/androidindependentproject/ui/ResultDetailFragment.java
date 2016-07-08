@@ -75,10 +75,14 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
     }
         @Override
         public void onClick(View v) {
-            if (v == mWebsiteLabel) {
-                Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(mBrewery.getWebsite()));
-                startActivity(webIntent);
+            if(mWebsiteLabel == null || mWebsiteLabel.equals("")){
+
+            } else{
+                if (v == mWebsiteLabel) {
+                    Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse(mBrewery.getWebsite()));
+                    startActivity(webIntent);
+                }
             }
             if (v == mPhoneLabel) {
                 Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
