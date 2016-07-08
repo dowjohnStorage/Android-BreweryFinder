@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.epicodus.androidindependentproject.R;
 import com.epicodus.androidindependentproject.models.Brewery;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -57,6 +58,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Br
         }
 
         public void bindBrewery(Brewery brewery) {
+            Picasso.with(mContext).load(brewery.getImgURL()).into(mBreweryImageView);
             mNameTextView.setText(brewery.getName());
             mAddressTextView.setText(brewery.getAddress());
             mLocalityTextView.setText(brewery.getLocality());

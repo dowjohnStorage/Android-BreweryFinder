@@ -60,7 +60,8 @@ public class Brewery {
     public String getRegion() {
         return mRegion;
     }
-    public String getImgUrl() {
+
+    public String getImgURL() {
         return mImgURL;
     }
 }
