@@ -66,7 +66,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Br
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, ResultDetailActivity.class);
-            intent.putExtra("position", itemPosition + "");
+            intent.putExtra("position", Integer.toString(itemPosition));
             intent.putExtra("breweries", Parcels.wrap(mBreweries));
             mContext.startActivity(intent);
         }
