@@ -1,6 +1,7 @@
 package com.epicodus.androidindependentproject.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.epicodus.androidindependentproject.R;
 import com.epicodus.androidindependentproject.models.Brewery;
+import com.epicodus.androidindependentproject.ui.ResultDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -43,7 +47,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Br
         return mBreweries.size();
     }
 
-    public class BreweryViewHolder extends RecyclerView.ViewHolder {
+    public class BreweryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @Bind(R.id.breweryImageView) ImageView mBreweryImageView;
         @Bind(R.id.breweryNameTextView) TextView mNameTextView;
         @Bind(R.id.addressTextView) TextView mAddressTextView;
@@ -55,6 +59,16 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Br
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, ResultDetailActivity.class);
+            intent.putExtra("position", itemPosition + "");
+            intent.putExtra("breweries", Parcels.wrap(mBreweries));
+            mContext.startActivity(intent);
         }
 
         public void bindBrewery(Brewery brewery) {
