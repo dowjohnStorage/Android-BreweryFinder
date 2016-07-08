@@ -33,13 +33,13 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         if(v == mSearchBreweriesButton) {
             String brewerySearchItem = mSearchBreweriesEntry.getText().toString();
-            Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
+            Intent intent = new Intent(SearchActivity.this, ResultListActivity.class);
             intent.putExtra("brewerySearchItem", brewerySearchItem);
             startActivity(intent);
         }
         if(v == mSearchBrewsButton) {
             String brewSearchItem = mSearchBrewsEntry.getText().toString();
-            Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
+            Intent intent = new Intent(SearchActivity.this, ResultListActivity.class);
             intent.putExtra("brewSearchItem", brewSearchItem);
             startActivity(intent);
         }

@@ -1,5 +1,10 @@
 package com.epicodus.androidindependentproject.models;
 
+import org.parceler.Parcel;
+
+import java.util.ArrayList;
+
+@Parcel
 public class Brewery {
     private String mBreweryID;
     private String mName;
@@ -11,6 +16,8 @@ public class Brewery {
     private String mLocality;
     private String mRegion;
     private String mImgURL;
+
+    public Brewery() {}
 
     public Brewery(String breweryID, String name, String phone, String address, String locationType, String description, String website, String locality, String region, String imgURL) {
         this.mBreweryID = breweryID;

@@ -3,7 +3,7 @@ package com.epicodus.androidindependentproject.services;
 import android.util.Log;
 
 import com.epicodus.androidindependentproject.Constants;
-import com.epicodus.androidindependentproject.ui.ResultsActivity;
+import com.epicodus.androidindependentproject.ui.ResultListActivity;
 import com.epicodus.androidindependentproject.models.Brewery;
 
 import org.json.JSONArray;
@@ -21,7 +21,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class BrewerydbService {
-    public static final String TAG = ResultsActivity.class.getSimpleName();
+    public static final String TAG = ResultListActivity.class.getSimpleName();
     public static void findLocalBreweries(String location, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();

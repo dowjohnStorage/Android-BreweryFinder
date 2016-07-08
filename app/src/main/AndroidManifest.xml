@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.epicodus.androidindependentproject">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -29,12 +29,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.SearchActivity" />
         </activity>
-        <activity android:name=".ui.ResultsActivity">
+        <activity android:name=".ui.ResultListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.SearchActivity" />
         </activity>
-        <activity android:name=".ui.CreateProfileActivity"></activity>
+        <activity android:name=".ui.CreateProfileActivity" />
+        <activity android:name=".ui.ResultDetailActivity"></activity>
     </application>
 
 </manifest>

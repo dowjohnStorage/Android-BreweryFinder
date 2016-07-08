@@ -5,10 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.epicodus.androidindependentproject.R;
 import com.epicodus.androidindependentproject.adapters.ResultListAdapter;
@@ -25,8 +21,8 @@ import okhttp3.Response;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ResultsActivity extends AppCompatActivity {
-    public static final String TAG = ResultsActivity.class.getSimpleName();
+public class ResultListActivity extends AppCompatActivity {
+    public static final String TAG = ResultListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
@@ -61,13 +57,13 @@ public class ResultsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mBreweries = breweryDBService.procesResults(response);
 
-                ResultsActivity.this.runOnUiThread(new Runnable() {
+                ResultListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mAdapter = new ResultListAdapter(getApplicationContext(), mBreweries);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(ResultsActivity.this);
+                                new LinearLayoutManager(ResultListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }
