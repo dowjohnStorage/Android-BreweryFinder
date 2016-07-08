@@ -132,7 +132,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save Brewery"
+                android:text="Add to Favorites"
                 android:id="@+id/saveBreweryButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"

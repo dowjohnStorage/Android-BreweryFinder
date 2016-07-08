@@ -71,4 +71,10 @@ public class Brewery {
     public String getImgURL() {
         return mImgURL;
     }
+
+    public String getSearchableAddress(){
+        String modifiedString = (mAddress + ", " + mLocality + "%2C " + mRegion);
+        String finalString = modifiedString.replaceAll(" ", "+");
+        return finalString;
+    }
 }
