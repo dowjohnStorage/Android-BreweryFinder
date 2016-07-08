@@ -74,7 +74,3 @@ public class BrewerydbService {
     }
 
 }
-
-//curl "http://api.brewerydb.com/v2/locations?postalCode=97124&key=<key>"
-
-//http://api.brewerydb.com/v2/locations/postalCode?code=606905008303?key=[KEY]

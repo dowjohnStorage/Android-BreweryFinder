@@ -31,6 +31,7 @@ public class ResultDetailFragment extends Fragment {
     @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
     @Bind(R.id.phoneTextView) TextView mPhoneLabel;
     @Bind(R.id.addressTextView) TextView mAddressLabel;
+    @Bind(R.id.descriptionTextView) TextView mDescriptionLabel;
     @Bind(R.id.saveBreweryButton) TextView mSaveBreweryButton;
 
     private Brewery mBrewery;
@@ -62,6 +63,7 @@ public class ResultDetailFragment extends Fragment {
         mPhoneLabel.setText(mBrewery.getPhone());
         mAddressLabel.setText(android.text.TextUtils.concat(mBrewery.getAddress(), ", ", mBrewery.getLocality(), ", ", mBrewery.getRegion()));
         mWebsiteLabel.setText(mBrewery.getWebsite());
+        mDescriptionLabel.setText(mBrewery.getDescription());
         return view;
     }
 }
