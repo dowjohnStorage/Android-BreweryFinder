@@ -25,6 +25,15 @@
         android:layout_below="@+id/profileCreateTextView"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/usernameEditText"
+        android:layout_below="@+id/usernameCreationTextView"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,14 +44,6 @@
         android:layout_alignEnd="@+id/usernameCreationTextView"
         android:layout_marginTop="41dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/usernameEditText"
-        android:layout_below="@+id/usernameCreationTextView"
-        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
