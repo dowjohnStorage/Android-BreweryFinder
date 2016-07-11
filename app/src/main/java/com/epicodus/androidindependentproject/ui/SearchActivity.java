@@ -16,8 +16,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     @Bind(R.id.searchBreweriesEntry) EditText mSearchBreweriesEntry;
     @Bind(R.id.searchBreweriesButton) Button mSearchBreweriesButton;
-    @Bind(R.id.searchBrewsEntry) EditText mSearchBrewsEntry;
-    @Bind(R.id.searchBrewsButton) Button mSearchBrewsButton;
+//    @Bind(R.id.searchBrewsEntry) EditText mSearchBrewsEntry;
+//    @Bind(R.id.searchBrewsButton) Button mSearchBrewsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         ButterKnife.bind(this);
 
         mSearchBreweriesButton.setOnClickListener(this);
-        mSearchBrewsButton.setOnClickListener(this);
+//        mSearchBrewsButton.setOnClickListener(this);
     }
 
     @Override
@@ -37,11 +37,11 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             intent.putExtra("brewerySearchItem", brewerySearchItem);
             startActivity(intent);
         }
-        if(v == mSearchBrewsButton) {
-            String brewSearchItem = mSearchBrewsEntry.getText().toString();
-            Intent intent = new Intent(SearchActivity.this, ResultListActivity.class);
-            intent.putExtra("brewSearchItem", brewSearchItem);
-            startActivity(intent);
-        }
+//        if(v == mSearchBrewsButton) {
+//            String brewSearchItem = mSearchBrewsEntry.getText().toString();
+//            Intent intent = new Intent(SearchActivity.this, ResultListActivity.class);
+//            intent.putExtra("brewSearchItem", brewSearchItem);
+//            startActivity(intent);
+//        }
     }
 }

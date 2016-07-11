@@ -30,34 +30,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brewery Name"
-                android:id="@+id/breweryNameTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/breweryNameTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rating Placeholder"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
                 android:id="@+id/ratingTextView"
                 android:layout_alignTop="@+id/breweryNameTextView"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
+                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No Type Found"
+                android:textColor="@color/colorSecondaryText"
+                android:textStyle="italic"
                 android:id="@+id/breweryTypeTextView"
                 android:layout_below="@+id/breweryNameTextView"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/colorSecondaryText"
-                android:textStyle="italic" />
+                android:layout_alignParentStart="true" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -80,12 +81,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No Website Found"
-                    android:id="@+id/websiteTextView"
-                    android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
-                    android:drawablePadding="4dp"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    android:id="@+id/websiteTextView"
+                    android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
+                    android:drawablePadding="4dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center" />
 
@@ -93,12 +94,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No Phone Number Found"
-                    android:id="@+id/phoneTextView"
-                    android:drawableLeft="@drawable/ic_local_phone_white_24dp"
-                    android:drawablePadding="4dp"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    android:id="@+id/phoneTextView"
+                    android:drawableLeft="@drawable/ic_local_phone_white_24dp"
+                    android:drawablePadding="4dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"/>
 
@@ -106,12 +107,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No Address Found"
-                    android:drawableLeft="@drawable/ic_map_white_24dp"
-                    android:drawablePadding="4dp"
-                    android:id="@+id/addressTextView"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    android:drawableLeft="@drawable/ic_map_white_24dp"
+                    android:drawablePadding="4dp"
+                    android:id="@+id/addressTextView"
                     android:layout_marginBottom="10dp"
                     android:gravity="center_vertical"/>
 
@@ -122,11 +123,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="No Description Found"
-                        android:drawablePadding="4dp"
-                        android:id="@+id/descriptionTextView"
                         android:textColor="@color/colorTextIcons"
                         android:textSize="15sp"
                         android:textStyle="bold"
+                        android:drawablePadding="4dp"
+                        android:id="@+id/descriptionTextView"
                         android:layout_marginBottom="10dp"
                         android:gravity="center_vertical"/>
                 </ScrollView>
@@ -137,12 +138,13 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add to Favorites"
-                android:id="@+id/saveBreweryButton"
-                android:layout_alignParentBottom="true"
-                android:background="@color/colorAccent"
+                android:text="View Reviews"
                 android:textColor="@color/colorTextIcons"
-                android:textSize="15sp" />
+                android:textSize="20sp"
+                android:id="@+id/viewBreweryReviewsButton"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorAccent" />
+
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>
