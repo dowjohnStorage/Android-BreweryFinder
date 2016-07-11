@@ -22,9 +22,10 @@
         android:ems="9"
         android:textSize="30sp"
         android:id="@+id/searchBreweriesEntry"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/searchBreweriesText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
         android:background="@color/colorPrimary"/>
     <Button
         android:layout_width="wrap_content"
@@ -36,37 +37,37 @@
         android:background="@color/colorAccent"
         android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Search For: Brews(by Name, Style, or )"
-        android:id="@+id/searchBrewsTitle"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryText"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/searchBreweriesText"
-        android:layout_alignStart="@+id/searchBreweriesText" />
+    <!--<TextView-->
+        <!--android:layout_width="300dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Search For: Brews(by Name, Style, or )"-->
+        <!--android:id="@+id/searchBrewsTitle"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textColor="@color/colorPrimaryText"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignLeft="@+id/searchBreweriesText"-->
+        <!--android:layout_alignStart="@+id/searchBreweriesText" />-->
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="9"
-        android:textSize="30sp"
-        android:background="@color/colorPrimary"
-        android:id="@+id/searchBrewsEntry"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/searchBrewsTitle"
-        android:layout_centerHorizontal="true" />
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:ems="9"-->
+        <!--android:textSize="30sp"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:id="@+id/searchBrewsEntry"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:layout_below="@+id/searchBrewsTitle"-->
+        <!--android:layout_centerHorizontal="true" />-->
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit Search Requst"
-        android:id="@+id/searchBrewsButton"
-        android:layout_below="@+id/searchBrewsEntry"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
-        android:layout_marginTop="10dp"/>
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Submit Search Requst"-->
+        <!--android:id="@+id/searchBrewsButton"-->
+        <!--android:layout_below="@+id/searchBrewsEntry"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:layout_marginTop="10dp"/>-->
 
 </RelativeLayout>
