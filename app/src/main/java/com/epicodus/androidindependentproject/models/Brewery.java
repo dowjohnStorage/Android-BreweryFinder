@@ -6,74 +6,74 @@ import java.util.ArrayList;
 
 @Parcel
 public class Brewery {
-    private String mBreweryID;
-    private String mName;
-    private String mPhone;
-    private String mAddress;
-    private String mLocationType;
-    private String mDescription;
-    private String mWebsite;
-    private String mLocality;
-    private String mRegion;
-    private String mImgURL;
+    private String breweryID;
+    private String name;
+    private String phone;
+    private String address;
+    private String locationType;
+    private String description;
+    private String website;
+    private String locality;
+    private String region;
+    private String imgURL;
 
     public Brewery() {}
 
     public Brewery(String breweryID, String name, String phone, String address, String locationType, String description, String website, String locality, String region, String imgURL) {
-        this.mBreweryID = breweryID;
-        this.mName = name;
-        this.mPhone = phone;
-        this.mAddress = address;
-        this.mLocationType = locationType;
-        this.mDescription = description;
-        this.mWebsite = website;
-        this.mLocality = locality;
-        this.mRegion = region;
-        this.mImgURL = imgURL;
+        this.breweryID = breweryID;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.locationType = locationType;
+        this.description = description;
+        this.website = website;
+        this.locality = locality;
+        this.region = region;
+        this.imgURL = imgURL;
     }
 
     public String getBreweryID() {
-        return mBreweryID;
+        return breweryID;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getPhone() {
-        return mPhone;
+        return phone;
     }
 
     public String getAddress() {
-        return mAddress;
+        return address;
     }
 
     public String getLocationType() {
-        return mLocationType;
+        return locationType;
     }
 
     public String getDescription() {
-        return mDescription;
+        return description;
     }
 
     public String getWebsite() {
-        return mWebsite;
+        return website;
     }
 
     public String getLocality() {
-        return mLocality;
+        return locality;
     }
 
     public String getRegion() {
-        return mRegion;
+        return region;
     }
 
     public String getImgURL() {
-        return mImgURL;
+        return imgURL;
     }
 
     public String getSearchableAddress(){
-        String modifiedString = (mAddress + ", " + mLocality + "%2C " + mRegion);
+        String modifiedString = (address + ", " + locality + "%2C " + region);
         String finalString = modifiedString.replaceAll(" ", "+");
         return finalString;
     }
