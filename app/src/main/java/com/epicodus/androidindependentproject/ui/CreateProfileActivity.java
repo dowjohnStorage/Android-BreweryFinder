@@ -13,9 +13,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CreateProfileActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.usernameEditText) EditText mUsernameEditText;
+    @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
-    @Bind(R.id.createProfileSubmitButton) Button mCreateProfileSubmitButton;
+    @Bind(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
+    @Bind(R.id.createUserButton) Button mCreateUserButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +24,18 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_create_profile);
         ButterKnife.bind(this);
 
-        mCreateProfileSubmitButton.setOnClickListener(this);
+        mCreateUserButton.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
-        if (v == mCreateProfileSubmitButton) {
-            String usernameCreate = mUsernameEditText.getText().toString();
+        if (v == mCreateUserButton) {
+            String usernameCreate = mEmailEditText.getText().toString();
             String passwordCreate = mPasswordEditText.getText().toString();
+            String passwordVerify = mConfirmPasswordEditText.getText().toString();
             Intent intent = new Intent(CreateProfileActivity.this, MainActivity.class);
             intent.putExtra("usernameCreate", usernameCreate);
             intent.putExtra("passwordCreate", passwordCreate);
+            intent.putExtra("passwordVerify", passwordVerify);
             startActivity(intent);
         }
     }

@@ -12,13 +12,11 @@ import com.epicodus.androidindependentproject.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @Bind(R.id.usernameLogin)
-    EditText mUsernameLogin;
+    @Bind(R.id.emailLogin) EditText mEmailLogin;
     @Bind(R.id.passwordLogin) EditText mPasswordLogin;
-    @Bind(R.id.loginButton)
-    Button mLoginButton;
+    @Bind(R.id.loginButton) Button mLoginButton;
     @Bind(R.id.createAccountButton) Button mCreateAccountButton;
 
     @Override
@@ -27,25 +25,26 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = mUsernameLogin.getText().toString();
-                String password = mPasswordLogin.getText().toString();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                intent.putExtra("username", username);
-                intent.putExtra("password", password);
-                startActivity(intent);
-            }
-        });
+        mLoginButton.setOnClickListener(this);
+        mCreateAccountButton.setOnClickListener(this);
+    }
 
-        mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CreateProfileActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+    @Override
+    public void onClick(View view) {
+        if (view == mLoginButton) {
+            String email = mEmailLogin.getText().toString();
+            String password = mPasswordLogin.getText().toString();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("email", email);
+            intent.putExtra("password", password);
+            startActivity(intent);
+            finish();
+        }
+        if (view == mCreateAccountButton) {
+            Intent intent = new Intent(LoginActivity.this, CreateProfileActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }
+

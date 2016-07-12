@@ -3,84 +3,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CreateProfileActivity">
+    tools:context=".ui.CreateProfileActivity"
+    android:background="@color/colorLightPrimary">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:nextFocusDown="@+id/passwordEditText"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorDivider"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:nextFocusDown="@+id/passwordEditText"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorDivider"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:hint="Verify Password"
+            android:inputType="textPassword"
+            android:nextFocusDown="@+id/passwordEditText"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorDivider"
+            android:textSize="20sp" />
+
+
+        <Button
+            android:id="@+id/createUserButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Sign up"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/colorTextIcons" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorTextIcons"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Already have an account? Log in here!"
+            android:id="@+id/loginTextView"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Create Profile"
-        android:id="@+id/profileCreateTextView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Username"
-        android:id="@+id/usernameCreationTextView"
-        android:layout_marginTop="39dp"
-        android:textColor="@color/colorPrimaryText"
-        android:layout_below="@+id/profileCreateTextView"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/usernameEditText"
-        android:layout_below="@+id/usernameCreationTextView"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Password"
-        android:id="@+id/passwordTextView"
-        android:layout_below="@+id/usernameEditText"
-        android:layout_alignRight="@+id/usernameCreationTextView"
-        android:layout_alignEnd="@+id/usernameCreationTextView"
-        android:layout_marginTop="41dp" />
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/passwordEditText"
-        android:layout_below="@+id/passwordTextView"
-        android:layout_alignLeft="@+id/usernameEditText"
-        android:layout_alignStart="@+id/usernameEditText" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Verify Password"
-        android:id="@+id/passwordVerifyTextView"
-        android:layout_below="@+id/passwordEditText"
-        android:layout_alignRight="@+id/usernameCreationTextView"
-        android:layout_alignEnd="@+id/usernameCreationTextView"
-        android:layout_marginTop="41dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/passwordVerifyEditText"
-        android:layout_below="@+id/passwordVerifyTextView"
-        android:layout_alignLeft="@+id/usernameEditText"
-        android:layout_alignStart="@+id/usernameEditText" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:id="@+id/createProfileSubmitButton"
-        android:layout_below="@+id/passwordVerifyEditText"
+        android:text="Create Account"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

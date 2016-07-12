@@ -12,12 +12,9 @@ import com.epicodus.androidindependentproject.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @Bind(R.id.usernameLogin) EditText mUsernameLogin;
-    @Bind(R.id.passwordLogin) EditText mPasswordLogin;
-    @Bind(R.id.loginButton) Button mLoginButton;
-    @Bind(R.id.createAccountButton) Button mCreateAccountButton;
+    @Bind(R.id.searchButton) Button mSearchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,25 +22,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = mUsernameLogin.getText().toString();
-                String password = mPasswordLogin.getText().toString();
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                intent.putExtra("username", username);
-                intent.putExtra("password", password);
-                startActivity(intent);
-            }
-        });
-
-        mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CreateProfileActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        mSearchButton.setOnClickListener(this);
     }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mSearchButton) {
+            Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+            startActivity(intent);
+        }
+    }
+
 }
