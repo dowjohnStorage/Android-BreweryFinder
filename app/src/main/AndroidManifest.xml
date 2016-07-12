@@ -36,7 +36,8 @@
         </activity>
         <activity android:name=".ui.CreateProfileActivity" />
         <activity android:name=".ui.ResultDetailActivity" />
-        <activity android:name=".ui.ReviewListActivity"></activity>
+        <activity android:name=".ui.ReviewListActivity" />
+        <activity android:name=".ui.LoginActivity"></activity>
     </application>
 
 </manifest>

@@ -12,17 +12,19 @@ import com.epicodus.androidindependentproject.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
-    @Bind(R.id.usernameLogin) EditText mUsernameLogin;
+    @Bind(R.id.usernameLogin)
+    EditText mUsernameLogin;
     @Bind(R.id.passwordLogin) EditText mPasswordLogin;
-    @Bind(R.id.loginButton) Button mLoginButton;
+    @Bind(R.id.loginButton)
+    Button mLoginButton;
     @Bind(R.id.createAccountButton) Button mCreateAccountButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = mUsernameLogin.getText().toString();
                 String password = mPasswordLogin.getText().toString();
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("username", username);
                 intent.putExtra("password", password);
                 startActivity(intent);

@@ -34,7 +34,7 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.phoneTextView) TextView mPhoneLabel;
     @Bind(R.id.addressTextView) TextView mAddressLabel;
     @Bind(R.id.descriptionTextView) TextView mDescriptionLabel;
-    @Bind(R.id.saveBreweryButton) TextView mSaveBreweryButton;
+    @Bind(R.id.viewBreweryReviewsButton) TextView mViewBreweryReviewsButton;
 
     private Brewery mBrewery;
 

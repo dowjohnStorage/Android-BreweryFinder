@@ -55,12 +55,32 @@
         android:layout_alignLeft="@+id/usernameEditText"
         android:layout_alignStart="@+id/usernameEditText" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Password"
+        android:id="@+id/passwordVerifyTextView"
+        android:layout_below="@+id/passwordEditText"
+        android:layout_alignRight="@+id/usernameCreationTextView"
+        android:layout_alignEnd="@+id/usernameCreationTextView"
+        android:layout_marginTop="41dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordVerifyEditText"
+        android:layout_below="@+id/passwordVerifyTextView"
+        android:layout_alignLeft="@+id/usernameEditText"
+        android:layout_alignStart="@+id/usernameEditText" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sumbit"
+        android:text="Submit"
         android:id="@+id/createProfileSubmitButton"
-        android:layout_below="@+id/passwordEditText"
+        android:layout_below="@+id/passwordVerifyEditText"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

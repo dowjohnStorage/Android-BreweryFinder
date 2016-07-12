@@ -128,7 +128,7 @@
                         android:textStyle="bold"
                         android:drawablePadding="4dp"
                         android:id="@+id/descriptionTextView"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="40dp"
                         android:gravity="center_vertical"/>
                 </ScrollView>
 
