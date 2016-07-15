@@ -3,6 +3,7 @@ package com.epicodus.androidindependentproject.models;
 import org.parceler.Parcel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Parcel
 public class Brewery {

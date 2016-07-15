@@ -5,9 +5,29 @@
     android:layout_height="match_parent"
     tools:context="com.epicodus.androidindependentproject.ui.ReviewListActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"/>
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/recyclerView"/>-->
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reviewListView"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/writeReviewButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write/Edit Your Own Review"
+        android:textSize="20sp"
+        android:id="@+id/writeReviewButton"
+        android:background="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
