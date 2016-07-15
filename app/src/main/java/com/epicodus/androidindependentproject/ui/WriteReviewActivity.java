@@ -19,7 +19,7 @@ import java.util.Date;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class WriteReviewActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class WriteReviewActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     public static final String TAG = CreateProfileActivity.class.getSimpleName();
 
     @Bind(R.id.ratingSpinner) Spinner mRatingSpinner;
@@ -44,7 +44,7 @@ public class WriteReviewActivity extends AppCompatActivity implements AdapterVie
         mCreateReviewButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void OnClick(View v) {
+            public void onClick(View view) {
                 String reviewContent = mReviewContentEditText.getText().toString();
                 Date date = new Date();
                 Review review = new Review("john", reviewContent, date, "ambacht", "10101");
