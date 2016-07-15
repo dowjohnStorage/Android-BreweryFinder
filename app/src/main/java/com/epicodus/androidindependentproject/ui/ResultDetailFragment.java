@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,7 +35,7 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.phoneTextView) TextView mPhoneLabel;
     @Bind(R.id.addressTextView) TextView mAddressLabel;
     @Bind(R.id.descriptionTextView) TextView mDescriptionLabel;
-    @Bind(R.id.viewBreweryReviewsButton) TextView mViewBreweryReviewsButton;
+    @Bind(R.id.viewBreweryReviewsButton) Button mViewBreweryReviewsButton;
 
     private Brewery mBrewery;
 
@@ -70,30 +71,36 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
         mWebsiteLabel.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
+        mViewBreweryReviewsButton.setOnClickListener(this);
 
         return view;
     }
-        @Override
-        public void onClick(View v) {
-            if(mWebsiteLabel == null || mWebsiteLabel.equals("")){
 
-            } else{
-                if (v == mWebsiteLabel) {
-                    Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                            Uri.parse(mBrewery.getWebsite()));
-                    startActivity(webIntent);
-                }
-            }
-            if (v == mPhoneLabel) {
-                Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
-                        Uri.parse("tel:" + mBrewery.getPhone()));
-                startActivity(phoneIntent);
-            }
-            if (v == mAddressLabel) {
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("geo:0,0?q="
-                                + mBrewery.getSearchableAddress()));
-                startActivity(mapIntent);
+    @Override
+    public void onClick(View v) {
+        if(mWebsiteLabel == null || mWebsiteLabel.equals("")){
+
+        } else{
+            if (v == mWebsiteLabel) {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(mBrewery.getWebsite()));
+                startActivity(webIntent);
             }
         }
+        if (v == mPhoneLabel) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + mBrewery.getPhone()));
+            startActivity(phoneIntent);
+        }
+        if (v == mAddressLabel) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:0,0?q="
+                            + mBrewery.getSearchableAddress()));
+            startActivity(mapIntent);
+        }
+        if (v == mViewBreweryReviewsButton) {
+            Intent reviewsIntent = new Intent(getActivity(), ReviewListActivity.class);
+            startActivity(reviewsIntent);
+        }
     }
+}
