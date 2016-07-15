@@ -13,6 +13,8 @@ import android.widget.Spinner;
 
 import com.epicodus.androidindependentproject.R;
 import com.epicodus.androidindependentproject.models.Review;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Date;
 
@@ -48,10 +50,13 @@ public class WriteReviewActivity extends AppCompatActivity implements AdapterVie
                 String reviewContent = mReviewContentEditText.getText().toString();
                 Date date = new Date();
                 Review review = new Review("john", reviewContent, date, "ambacht", "10101");
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                ref.push().setValue(review);
                 Intent intent = new Intent(WriteReviewActivity.this, ReviewListActivity.class);
                 startActivity(intent);
             }
         });
+
     }
 
     //required methods for OnItemSelectedListener
