@@ -48,6 +48,8 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
 
         mAuth = FirebaseAuth.getInstance();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+
+        //sorting Database and filtering by breweryid
         Query reference2 = ref.orderByChild("breweryID").equalTo(breweryId);
 
         mAdapter = new FirebaseListAdapter<Review>(this, Review.class, android.R.layout.two_line_list_item, reference2) {
