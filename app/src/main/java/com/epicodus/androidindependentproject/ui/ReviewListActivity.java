@@ -25,6 +25,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ReviewListActivity extends AppCompatActivity implements View.OnClickListener{
+    public static final String TAG = ReviewListActivity.class.getSimpleName();
+
     @Bind(R.id.reviewListView) ListView mReviewListView;
     @Bind(R.id.writeReviewButton) Button mWriteReviewButton;
     private String breweryId;
@@ -49,7 +51,7 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
         mAdapter = new FirebaseListAdapter<Review>(this, Review.class, android.R.layout.two_line_list_item, ref) {
             @Override
             protected void populateView(View view, Review review, int position) {
-                ((TextView)view.findViewById(android.R.id.text1)).setText(review.getReviewer());
+                ((TextView)view.findViewById(android.R.id.text1)).setText("Submitted by: " + review.getReviewer() + " at " + review.getDateSubmitted());
                 ((TextView)view.findViewById(android.R.id.text2)).setText(review.getReviewContent());
             }
         };
@@ -61,8 +63,9 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
         if (view == mWriteReviewButton) {
             Intent intent = getIntent();
             breweryId = intent.getStringExtra("breweryId");
+            Log.d(TAG, breweryId);
             Intent intentOn = new Intent(ReviewListActivity.this, WriteReviewActivity.class);
-            intent.putExtra("beweryId", breweryId);
+            intentOn.putExtra("breweryId", breweryId);
             startActivity(intentOn);
         }
     }

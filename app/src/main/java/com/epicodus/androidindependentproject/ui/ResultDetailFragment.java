@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ import com.epicodus.androidindependentproject.R;
  * A simple {@link Fragment} subclass.
  */
 public class ResultDetailFragment extends Fragment implements View.OnClickListener {
+    public static final String TAG = ResultDetailFragment.class.getSimpleName();
+
     @Bind(R.id.breweryImageView) ImageView mImageLabel;
     @Bind(R.id.breweryNameTextView) TextView mNameLabel;
     @Bind(R.id.breweryTypeTextView) TextView mBreweryTypeLabel;
@@ -38,6 +41,7 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.viewBreweryReviewsButton) Button mViewBreweryReviewsButton;
 
     private Brewery mBrewery;
+    private String breweryId;
 
     public static ResultDetailFragment newInstance(Brewery brewery) {
         ResultDetailFragment resultDetailFragment = new ResultDetailFragment();
@@ -100,6 +104,9 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
         }
         if (v == mViewBreweryReviewsButton) {
             Intent reviewsIntent = new Intent(getActivity(), ReviewListActivity.class);
+            breweryId = mBrewery.getBreweryID();
+            Log.d(TAG, breweryId);
+            reviewsIntent.putExtra("breweryId", breweryId);
             startActivity(reviewsIntent);
         }
     }

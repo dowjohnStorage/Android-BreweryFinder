@@ -22,7 +22,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class WriteReviewActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    public static final String TAG = CreateProfileActivity.class.getSimpleName();
+    public static final String TAG = WriteReviewActivity.class.getSimpleName();
 
     @Bind(R.id.ratingSpinner) Spinner mRatingSpinner;
     @Bind(R.id.reviewContentEditText) EditText mReviewContentEditText;
@@ -47,9 +47,12 @@ public class WriteReviewActivity extends AppCompatActivity implements AdapterVie
 
             @Override
             public void onClick(View view) {
+                Intent breweryIdIntent = getIntent();
+                String breweryId = breweryIdIntent.getStringExtra("breweryId");
+//                Log.d(TAG, breweryId);
                 String reviewContent = mReviewContentEditText.getText().toString();
                 Date date = new Date();
-                Review review = new Review("john", reviewContent, date, "ambacht", "10101");
+                Review review = new Review("john", reviewContent, date, "ambacht", breweryId);
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                 ref.push().setValue(review);
                 Intent intent = new Intent(WriteReviewActivity.this, ReviewListActivity.class);
