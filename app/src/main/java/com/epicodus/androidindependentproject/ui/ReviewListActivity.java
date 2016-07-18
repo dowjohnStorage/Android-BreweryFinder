@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import butterknife.Bind;
@@ -47,8 +48,9 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
 
         mAuth = FirebaseAuth.getInstance();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query reference2 = ref.orderByChild("breweryID").equalTo(breweryId);
 
-        mAdapter = new FirebaseListAdapter<Review>(this, Review.class, android.R.layout.two_line_list_item, ref) {
+        mAdapter = new FirebaseListAdapter<Review>(this, Review.class, android.R.layout.two_line_list_item, reference2) {
             @Override
             protected void populateView(View view, Review review, int position) {
                 ((TextView)view.findViewById(android.R.id.text1)).setText("Submitted by: " + review.getReviewer() + " at " + review.getDateSubmitted());
