@@ -13,6 +13,8 @@ import android.widget.Spinner;
 
 import com.epicodus.androidindependentproject.R;
 import com.epicodus.androidindependentproject.models.Review;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,6 +30,7 @@ public class WriteReviewActivity extends AppCompatActivity implements AdapterVie
     @Bind(R.id.reviewContentEditText) EditText mReviewContentEditText;
     @Bind(R.id.createReviewButton) Button mCreateReviewButton;
     public String finalRating;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +50,24 @@ public class WriteReviewActivity extends AppCompatActivity implements AdapterVie
 
             @Override
             public void onClick(View view) {
-                Intent breweryIdIntent = getIntent();
-                String breweryId = breweryIdIntent.getStringExtra("breweryId");
-//                Log.d(TAG, breweryId);
-                String reviewContent = mReviewContentEditText.getText().toString();
-                Date date = new Date();
-                Review review = new Review("john", reviewContent, date, "ambacht", breweryId);
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                ref.push().setValue(review);
-                Intent intent = new Intent(WriteReviewActivity.this, ReviewListActivity.class);
-                startActivity(intent);
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser user = mAuth.getCurrentUser();
+                String userCreate;
+                if (user != null) {
+                    userCreate = user.getDisplayName();
+                    Intent breweryIdIntent = getIntent();
+                    String breweryId = breweryIdIntent.getStringExtra("breweryId");
+                    String reviewContent = mReviewContentEditText.getText().toString();
+                    Date date = new Date();
+                    Review review = new Review(userCreate, reviewContent, date, "ambacht", breweryId);
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                    ref.push().setValue(review);
+                    Intent intent = new Intent(WriteReviewActivity.this, ReviewListActivity.class);
+                    intent.putExtra("breweryId", breweryId);
+                    startActivity(intent);
+                } else {
+
+                }
             }
         });
 
