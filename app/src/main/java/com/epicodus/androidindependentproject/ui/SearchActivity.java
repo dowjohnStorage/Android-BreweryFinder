@@ -1,12 +1,15 @@
 package com.epicodus.androidindependentproject.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.epicodus.androidindependentproject.Constants;
 import com.epicodus.androidindependentproject.R;
 
 import butterknife.Bind;
@@ -16,8 +19,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     @Bind(R.id.searchBreweriesEntry) EditText mSearchBreweriesEntry;
     @Bind(R.id.searchBreweriesButton) Button mSearchBreweriesButton;
-//    @Bind(R.id.searchBrewsEntry) EditText mSearchBrewsEntry;
-//    @Bind(R.id.searchBrewsButton) Button mSearchBrewsButton;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,22 +29,26 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         ButterKnife.bind(this);
 
         mSearchBreweriesButton.setOnClickListener(this);
-//        mSearchBrewsButton.setOnClickListener(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
     }
 
     @Override
     public void onClick(View v) {
         if(v == mSearchBreweriesButton) {
             String brewerySearchItem = mSearchBreweriesEntry.getText().toString();
+            if(!(brewerySearchItem).equals("")) {
+                addToSharedPreferences(brewerySearchItem);
+            }
             Intent intent = new Intent(SearchActivity.this, ResultListActivity.class);
             intent.putExtra("brewerySearchItem", brewerySearchItem);
             startActivity(intent);
         }
-//        if(v == mSearchBrewsButton) {
-//            String brewSearchItem = mSearchBrewsEntry.getText().toString();
-//            Intent intent = new Intent(SearchActivity.this, ResultListActivity.class);
-//            intent.putExtra("brewSearchItem", brewSearchItem);
-//            startActivity(intent);
-//        }
+    }
+
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 }
