@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view == mSearchButton) {
-            Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+            Intent intent = new Intent(MainActivity.this, ResultListActivity.class);
             startActivity(intent);
         }
     }

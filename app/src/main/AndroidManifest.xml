@@ -11,20 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity"></activity>
-        <activity android:name=".ui.SearchActivity">
+        <activity android:name=".ui.ProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.ProfileActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.SearchActivity" />
-        </activity>
         <activity android:name=".ui.ResultListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.SearchActivity" />
+                android:value=".ui.MainActivity" />
         </activity>
         <activity android:name=".ui.CreateProfileActivity" />
         <activity android:name=".ui.ResultDetailActivity" />
