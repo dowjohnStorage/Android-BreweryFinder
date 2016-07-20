@@ -23,7 +23,11 @@
         </activity>
         <activity android:name=".ui.CreateProfileActivity" />
         <activity android:name=".ui.ResultDetailActivity" />
-        <activity android:name=".ui.ReviewListActivity" />
+        <activity android:name=".ui.ReviewListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.ResultListActivity" />
+        </activity>
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
