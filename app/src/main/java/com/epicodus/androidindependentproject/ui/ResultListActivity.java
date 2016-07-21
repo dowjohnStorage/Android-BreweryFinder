@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,6 +31,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ResultListActivity extends AppCompatActivity {
+    public static final String TAG = ResultListActivity.class.getSimpleName();
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String mRecentLocation;
@@ -100,6 +102,7 @@ public class ResultListActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
+                Log.d(TAG, "failure");
             }
 
             @Override
