@@ -26,15 +26,11 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/linearLayout">
 
-            <Spinner
-                android:id="@+id/ratingSpinner"
-                android:layout_width="match_parent"
+            <RatingBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:hint="Rating 1-10"
-                android:nextFocusDown="@+id/reviewContentEditText"
-                android:layout_marginBottom="10dp"
-                android:textSize="20sp" />
+                android:id="@+id/reviewRatingBar"
+                android:layout_gravity="center_horizontal" />
 
             <EditText
                 android:id="@+id/reviewContentEditText"
@@ -42,13 +38,15 @@
                 android:layout_height="100dp"
                 android:background="@android:color/white"
                 android:hint="review body"
-                android:inputType="textCapSentences|textAutoCorrect"
+                android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
                 android:maxLength="1000"
                 android:padding="10dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/colorDivider"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:lines="8"
+                android:gravity="top|left" />
 
 
             <Button

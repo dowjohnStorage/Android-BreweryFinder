@@ -13,23 +13,24 @@ public class Review {
     private String reviewer;
     private String reviewContent;
     private String dateSubmitted;
-    private String breweryName;
+    private String rating;
     private String breweryID;
     private String pushId;
 
     public Review() {};
 
-    public Review(String reviewer, String reviewContent, Date dateSubmitted, String breweryName, String breweryID) {
+    public Review(String reviewer, String reviewContent, Date dateSubmitted, String rating, String breweryID) {
         this.reviewer = reviewer;
         this.reviewContent = reviewContent;
         this.dateSubmitted = dateSubmitted.toString();
-        this.breweryName = breweryName;
+        this.rating = rating;
         this.breweryID = breweryID;
     }
 
     public String getReviewer() {
         return reviewer;
     }
+
     public String getReviewContent() {
         return reviewContent;
     }
@@ -38,9 +39,7 @@ public class Review {
         return dateSubmitted;
     }
 
-    public String getBreweryName() {
-        return breweryName;
-    }
+    public String getRating() { return rating; }
 
     public String getBreweryID() {
         return breweryID;
