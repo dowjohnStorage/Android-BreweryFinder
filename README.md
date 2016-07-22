@@ -11,3 +11,6 @@ It will also allow users to write reviews for breweries and beers with an aggreg
   3. Run app in android studio
   
 ### Author: John Dow
+
+### Licences:
+    Image(s) or Footage (as applicable), used under license from Shutterstock.com
