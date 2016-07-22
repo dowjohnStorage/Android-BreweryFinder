@@ -13,8 +13,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.epicodus.androidindependentproject.Constants;
 import com.epicodus.androidindependentproject.R;
 import com.epicodus.androidindependentproject.models.Brewery;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -23,6 +27,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 import com.epicodus.androidindependentproject.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +48,8 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
 
     private Brewery mBrewery;
     private String breweryId;
+    private DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+    private DataSnapshot firebaseSnapShot;
 
     public static ResultDetailFragment newInstance(Brewery brewery) {
         ResultDetailFragment resultDetailFragment = new ResultDetailFragment();
@@ -54,7 +62,7 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBrewery = Parcels.unwrap(getArguments().getParcelable("brewery"));
+        mBrewery = Parcels.unwrap(getArguments().getParcelable(Constants.BREWERY_PARAM));
     }
 
     @Override
@@ -66,6 +74,15 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
 
         mNameLabel.setText(mBrewery.getName());
         mBreweryTypeLabel.setText(mBrewery.getLocationType());
+
+        long testSnapshot = firebaseSnapShot.getChildrenCount();
+
+        for (DataSnapshot item : firebaseSnapShot.getChildren()) {
+
+        }
+
+//        ArrayList<String> reviews = new ArrayList<>();
+
         mRatingLabel.setText("rating");
         mPhoneLabel.setText(mBrewery.getPhone());
         mAddressLabel.setText(android.text.TextUtils.concat(mBrewery.getAddress(), ", ", mBrewery.getLocality(), ", ", mBrewery.getRegion()));
@@ -82,7 +99,7 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if(mWebsiteLabel == null || mWebsiteLabel.equals("")){
+        if (mWebsiteLabel == null || mWebsiteLabel.equals("")){
 
         } else{
             if (v == mWebsiteLabel) {
@@ -98,8 +115,7 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
         }
         if (v == mAddressLabel) {
             Intent mapIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("geo:0,0?q="
-                            + mBrewery.getSearchableAddress()));
+                    Uri.parse("geo:0,0?q=" + mBrewery.getSearchableAddress()));
             startActivity(mapIntent);
         }
         if (v == mViewBreweryReviewsButton) {

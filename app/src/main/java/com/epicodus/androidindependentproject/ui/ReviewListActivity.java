@@ -32,7 +32,6 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
     @Bind(R.id.writeReviewButton) Button mWriteReviewButton;
     private String breweryId;
     private FirebaseListAdapter mAdapter;
-    private FirebaseAuth mAuth;
     private DatabaseReference ref;
 
     @Override
@@ -45,7 +44,6 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
         breweryId = intent.getStringExtra("breweryId");
         mWriteReviewButton.setOnClickListener(this);
 
-        mAuth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference();
 
         //sorting Database and filtering by breweryid
@@ -58,6 +56,7 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
                 ((TextView)view.findViewById(android.R.id.text2)).setText(review.getReviewContent());
             }
         };
+
         mReviewListView.setAdapter(mAdapter);
     }
 

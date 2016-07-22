@@ -4,6 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.epicodus.androidindependentproject.Constants;
 import com.epicodus.androidindependentproject.R;
 import com.epicodus.androidindependentproject.adapters.ResultPagerAdapter;
 import com.epicodus.androidindependentproject.models.Brewery;
@@ -26,7 +27,7 @@ public class ResultDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result_detail);
         ButterKnife.bind(this);
 
-        mBreweries = Parcels.unwrap(getIntent().getParcelableExtra("breweries"));
+        mBreweries = Parcels.unwrap(getIntent().getParcelableExtra(Constants.BREWERIES_PARAM));
         int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
 
         adapterViewPager = new ResultPagerAdapter(getSupportFragmentManager(), mBreweries);
