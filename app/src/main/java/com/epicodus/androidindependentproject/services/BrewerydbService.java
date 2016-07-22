@@ -85,6 +85,10 @@ public class BrewerydbService {
                         String imgURL = imgURLObject.optString("squareMedium");
                         Brewery brewery = new Brewery(breweryID, name, phone, address, locationType, description, website, locality, region, imgURL);
                         breweries.add(brewery);
+                    } else {
+                        String imgURL = "http://image.shutterstock.com/z/stock-photo-set-of-beer-production-icon-brewery-process-infographic-flat-style-production-beer-brewery-372188656.jpg";
+                        Brewery brewery = new Brewery(breweryID, name, phone, address, locationType, description, website, locality, region, imgURL);
+                        breweries.add(brewery);
                     }
 
                 }
