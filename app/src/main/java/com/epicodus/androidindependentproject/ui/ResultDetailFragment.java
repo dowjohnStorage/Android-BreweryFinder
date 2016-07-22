@@ -109,7 +109,12 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
                 }
 
                 Double test = (averageRating.doubleValue() / averageArray.size());
-                mRatingLabel.setText(String.valueOf(test) + "/5");
+
+                if (test > -0.001) {
+                    mRatingLabel.setText(String.valueOf(test) + "/5");
+                } else {
+                    mRatingLabel.setText("No Ratings");
+                }
             }
 
             @Override
