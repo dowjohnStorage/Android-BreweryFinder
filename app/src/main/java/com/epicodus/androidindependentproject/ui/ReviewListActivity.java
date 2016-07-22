@@ -33,8 +33,7 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
     private String breweryId;
     private FirebaseListAdapter mAdapter;
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    public DatabaseReference ref;
+    private DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class ReviewListActivity extends AppCompatActivity implements View.OnClic
         mWriteReviewButton.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref = FirebaseDatabase.getInstance().getReference();
 
         //sorting Database and filtering by breweryid
         Query reference2 = ref.orderByChild("breweryID").equalTo(breweryId);
