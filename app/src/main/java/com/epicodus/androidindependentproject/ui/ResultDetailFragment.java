@@ -4,6 +4,7 @@ package com.epicodus.androidindependentproject.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,9 +17,13 @@ import android.widget.TextView;
 import com.epicodus.androidindependentproject.Constants;
 import com.epicodus.androidindependentproject.R;
 import com.epicodus.androidindependentproject.models.Brewery;
+import com.epicodus.androidindependentproject.models.Review;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -28,6 +33,7 @@ import butterknife.ButterKnife;
 
 import com.epicodus.androidindependentproject.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -50,6 +56,7 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
     private String breweryId;
     private DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
     private DataSnapshot firebaseSnapShot;
+    private ArrayList<Review> reviews = new ArrayList<>();
 
     public static ResultDetailFragment newInstance(Brewery brewery) {
         ResultDetailFragment resultDetailFragment = new ResultDetailFragment();
@@ -63,6 +70,7 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBrewery = Parcels.unwrap(getArguments().getParcelable(Constants.BREWERY_PARAM));
+
     }
 
     @Override
@@ -75,13 +83,40 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
         mNameLabel.setText(mBrewery.getName());
         mBreweryTypeLabel.setText(mBrewery.getLocationType());
 
-        long testSnapshot = firebaseSnapShot.getChildrenCount();
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println("There are " + dataSnapshot.getChildrenCount() + " blog posts");
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                    Review review = postSnapshot.getValue(Review.class);
+                    System.out.println(review.getBreweryID());
+                    reviews.add(review);
+                }
+                Log.d(TAG, String.valueOf(reviews.size()));
+                Integer totalRatings = 0;
+                Double averageRating = 0.0;
+                ArrayList<Double> averageArray = new ArrayList<>();
+                for (Review review : reviews) {
+                    if (review.getBreweryID().equals(mBrewery.getBreweryID())) {
+                        Double reviewRating = Double.parseDouble(review.getRating());
+                        averageArray.add(reviewRating);
+                        totalRatings++;
+                    }
+                }
 
-        for (DataSnapshot item : firebaseSnapShot.getChildren()) {
+                for (Double rating : averageArray) {
+                    averageRating += rating;
+                }
 
-        }
+                Double test = (averageRating.doubleValue() / averageArray.size());
+                mRatingLabel.setText(String.valueOf(test) + "/5");
+            }
 
-//        ArrayList<String> reviews = new ArrayList<>();
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         mRatingLabel.setText("rating");
         mPhoneLabel.setText(mBrewery.getPhone());
