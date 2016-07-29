@@ -104,6 +104,8 @@ public class ResultDetailFragment extends Fragment implements View.OnClickListen
                     }
                 }
 
+
+
                 for (Double rating : averageArray) {
                     averageRating += rating;
                 }
